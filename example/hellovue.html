@@ -8,6 +8,16 @@
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 <body>
-    
+    <div id="first-vue">
+        {{message}}
+    </div>
 </body>
+    <script>
+        new Vue({
+            el:"#first-vue",
+            data:{
+                message:"Hello Vue.js !"
+            }
+        })
+    </script>
 </html>
