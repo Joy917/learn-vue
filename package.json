@@ -1,0 +1,25 @@
+{
+  "name": "learn-vue",
+  "version": "1.0.0",
+  "description": "vue demo",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joy917/learn-vue.git"
+  },
+  "keywords": [
+    "vue.js"
+  ],
+  "author": "Joy917",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joy917/learn-vue/issues"
+  },
+  "homepage": "https://github.com/Joy917/learn-vue#readme"
+}
