@@ -12,23 +12,48 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="item in items">
+            <li v-for="item in sortItems">
                 {{item}}
             </li>
         </ul>
-        
+        <hr>
+        <ul>
+            <li v-for="(student,index) in sortStudents">
+                {{index}}-{{student.name}} : {{student.age}}
+            </li>
+        </ul>
     </div>
 </body>
 <script>
     new Vue({
         el: "#app",
         data: {
-            items: [23,32,22,11,67,34,78],
+            items: [23,32,22,11,67,34,7],
+            students:[
+                {name:"Joy917",age:24},
+                {name:"易小师",age:21},
+                {name:"辞酒轻尘",age:18},
+                {name:"青梅煮酒",age:14}
+            ]
         },
         computed:{
-            
+            sortItems:function(){
+                return this.items.sort(sortNum);
+            },
+            sortStudents:function(){
+                return sortByKey(this.students,"age");
+            }
         }
     })
+
+    function sortNum(a,b) {
+        return a-b;
+    }
+    function sortByKey(arr,key) {
+        return arr.sort(function (a,b) {
+            return (a[key]<b[key])?-1:((a[key] > b[key])?1:0);
+        });
+    }
 </script>
 
 </html>
