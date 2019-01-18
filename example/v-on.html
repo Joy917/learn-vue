@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on 计数器</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-text="message"></p>
+        <a v-html="h2html"><a/>
+        <h4>目前得分:<a v-text= "score"></a></h4>
+        <button v-on:click="addScore">加分</button>
+        <button v-on:click="reduceScore">减分</button><br>
+        <input type="text" @keyup.enter= "onEnter" v-model="number">
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            message:"this from v-text !",
+            h2html:"<h2>这是一段html字符串</h2>",
+            score:0,
+            number:1
+        },
+        methods:{
+            addScore:function(){
+                this.score +=1;
+            },
+            reduceScore: function () {
+                this.score -=1;
+            },
+            onEnter:function(){
+                this.score = this.score + parseInt(this.number);
+            }
+        }
+    })
+</script>
+
+</html>
