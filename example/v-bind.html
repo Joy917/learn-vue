@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello Vue.js</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p><img v-bind:src="imgSrc" width="300px"></p>
+        <p><a :href="blogUrl" target="_blank">博客地址</p>
+        <hr>
+        <p :class="className">1.绑定css样式</p>
+        <p :class="{classA:isOk}">2.绑定css判断 
+            <input type="checkbox" id="judgeBox" v-model="isOk">
+            <label for="judgeBox">isOk={{isOk}}</label>
+        </p>
+        <p :class="isOk?classA:classB">3.三元表达式绑定css
+        <p :class="[classA,classB]">4.绑定css数组</p>
+        <hr>
+        <p :style="styleObject">5.绑定style对象</p>
+    </div>
+    
+</body>
+    <style>
+    .classA {
+        color: rgba(255, 51, 0, 0.938);
+    }
+
+    .classB {
+        font-size: 150%;
+    }
+    </style>
+    <script type="text/javascript">
+        new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"https://s2.ax1x.com/2019/01/23/kV6SiR.jpg",
+                blogUrl:"https://blog.csdn.net/qq_35221523/article/details/85239867",
+                className:"classA",
+                isOk:true,
+                classA:"classA",
+                classB:"classB",
+                styleObject:{
+                    fontSize:"30px",
+                    color:"green"
+                }
+            }
+        })
+    </script>
+</html>
