@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>v-model</title>
+    <title>v-pre&v-once</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <p>{{message}}</p>
-        <a>懒加载： </a><input type="text" v-model.lazy="message"><br>
-        <a>数字： </a><input type="text" v-model.number="message"><br>
-        <a>去除首尾空格： </a><input type="text" v-model.trim="message">
+        <p v-pre>{{message}}</p>
+        <hr>
+        <p v-once>{{onceage}}</p>
+        <input type="text" v-model="onceage">
+
     </div>
 </body>
     <script>
         new Vue({
             el:"#app",
             data:{
-                message:"Hello Vue.js !"
+                message:"this is pre command !",
+                onceage:"this content should not be modify."
             }
         })
     </script>
