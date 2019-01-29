@@ -12,19 +12,53 @@
         count:{{count}}
         <br>
         <button @click="add">add</button>
+        <p v-joy="color">测试joy指令的文字</p>
+        <p v-joy2="color">测试自定义指令生命周期</p>
+        <br>
+        <button onclick="unbind()">解绑指令</button>
     </div>
 </body>
     <script>
-        new Vue({
+        function unbind() {
+            app.$destroy();
+        }
+        // 自定义指令的五个生命周期
+        Vue.directive('joy',{
+            bind:function(el, binding) {
+             console.log("1-bind");
+            },
+            inserted:function(el,binding){
+             console.log("2-insert");
+            },
+            update:function(el,binding){
+                console.log("3-update");
+            },
+            componentUpdated:function(el,binding){
+                console.log("4-componentUpdated");
+            },
+            unbind:function(el,binding){
+                console.log("5-unbind");
+            }
+        });
+
+        Vue.directive('joy',function(el,binding,vnode) {
+            // console.log(el);
+            // console.log(binding);
+            el.style = "color:"+binding.value;
+        });
+        var app = new Vue({
             el:"#app",
             data:{
-                count:0
+                count:0,
+                color:"red"
             },
             methods: {
                 add: function () {
                     this.count++;
                 }
             }
-        })
+        });
+
+
     </script>
 </html>
