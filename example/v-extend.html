@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-extend</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <author></author>
+    </div>
+</body>
+    <script>
+        var authorExtend = Vue.extend({
+            template:"<p><a v-bind:href='authorUrl'>{{authorName}}</a></p>",
+            data:function(){
+                return{
+                    authorName:"Joy917",
+                    authorUrl:"https://blog.csdn.net/qq_35221523/article/details/85239867"
+                }
+            }
+        });
+        new authorExtend().$mount('author');
+    </script>
+</html>
