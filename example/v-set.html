@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue set全局操作</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{count}} | {{arr[1]}}
+    </div>
+    <button onclick="add()">add</button> | <button onclick="change()">change</button>
+</body>
+    <script>
+        function add() {
+            outData.count++;
+        }
+        function change() {
+            // vue不能识别数组的以下变动，比如利用索引改变元素，改变数组长度
+            // 所以通过Vue.set全局改变
+            if (v.count%2==0) {
+                Vue.set(outData.arr, 1, 'ddd');
+            }else{
+                Vue.set(outData.arr, 1, 'bbb');
+            }
+        }
+        // 定义外部数据
+        var outData = {
+            count:1,
+            arr:['aaa','bbb','ccc']
+        };
+        var v = new Vue({
+            el:"#app",
+            // 引用外部数据
+            data:outData
+        })
+    </script>
+</html>
